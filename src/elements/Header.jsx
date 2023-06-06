@@ -3,8 +3,13 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
     return (
-        <div>Header.jsx</div>
+        <nav>
+            <NavLink to='/'>Landing</NavLink>
+            <NavLink to='/home'>Home</NavLink>
+            <NavLink to='/add-quote'>Add a Blurb</NavLink>
+        </nav>
     )
+
 }
 
 export default Header
