@@ -18,9 +18,13 @@ module.exports = {
                     username,
                     hashedPass: hash
                 })
-                res.status(200).send({
-                    userId: newUser.dataValues.id
-                })
+
+                req.session.user = {
+                    userId: newUser.dataValues.id,
+                    username: newUser.dataValues.username
+                }
+
+                res.status(200).send(req.session.user)
             }
         } catch(theseHands){
             console.log(theseHands)
@@ -28,18 +32,24 @@ module.exports = {
         }
     },
     login: async (req, res) => {
-        console.log('loggin in!!!')
+        console.log('loggin in!!!', req.session)
         try{
             const {username, password} = req.body
 
             let foundUser = await User.findOne({where: {username}})
+
             if(foundUser){
                 const isAuthenticated = bcrypt.compareSync(password, foundUser.hashedPass)
 
                 if(isAuthenticated){
-                    res.status(200).send({
-                        userId: foundUser.dataValues.id
-                    })
+
+                    req.session.user = {
+                        userId: foundUser.dataValues.id,
+                        username: foundUser.dataValues.username
+                    }
+    
+                    res.status(200).send(req.session.user)
+
                 } else {
                     res.status(400).send('Incorrect password.')
                 }
@@ -50,5 +60,17 @@ module.exports = {
             console.log(theseHands)
             res.sendStatus(500)
         }
+    },
+    checkUser: (req, res) => {
+        console.log(req.session)
+        if(req.session.user){
+            res.status(200).send(req.session.user)
+        } else {
+            res.status(400).send('No user found.')
+        }
+    },
+    logout: (req, res) => {
+        req.session.destroy()
+        res.sendStatus(200)
     }
 }

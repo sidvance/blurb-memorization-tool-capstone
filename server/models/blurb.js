@@ -11,6 +11,6 @@ module.exports = {
         },
         title: DataTypes.STRING,
         source: DataTypes.STRING,
-        body: DataTypes.STRING
+        quote: DataTypes.STRING
     })
 }

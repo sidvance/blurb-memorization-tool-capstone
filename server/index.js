@@ -1,7 +1,8 @@
 require('dotenv').config()
 const express = require('express')
+const session = require('express-session')
 const cors = require('cors')
-const {SERVER_PORT} = process.env
+const {SERVER_PORT, SECRET} = process.env
 
 //db imports
 const {sequelize} = require('./util/database')
@@ -13,8 +14,8 @@ User.hasMany(Blurb)
 Blurb.belongsTo(User)
 
 //controller imports
-const {register} = require('./controllers/authCtrl')
-const {login} = require('./controllers/authCtrl')
+const {register, login, checkUser, logout} = require('./controllers/authCtrl')
+const {addNewBlurb} = require('./controllers/blurbCtrl')
 
 const app = express()
 
@@ -22,12 +23,26 @@ const app = express()
 //line below used to translate json into js
 app.use(express.json())
 app.use(cors())
+app.use(session({
+    secret: SECRET,
+    RESAVE: false,
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 2
+    }
+}))
 
-//endpoint for authentification
+//endpoints for authentification
 app.post('/api/register', register)
 app.post('/api/login', login)
+app.get('/api/user', checkUser)
+app.post('/api/logout', logout)
+
+//endpoints for data
+app.post('/api/blurbs', addNewBlurb)
 
 //below line establishes connection with database
+// sequelize.sync({force: true})
 sequelize.sync()
     .then(() => app.listen(4006, console.log(`we're in business boys: port ${SERVER_PORT}`)))
     .catch(theseHands => console.log(theseHands))
