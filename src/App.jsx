@@ -14,7 +14,7 @@ import { useContext } from 'react';
 function App() {
   const {userId} = useContext(AuthContext)
   return (
-    <div>
+    <div className='bg-lightTan'>
       <Header/>
         <Routes>
           <Route index element={userId ? <Navigate to='/home'/> : <Landing/>}></Route>
