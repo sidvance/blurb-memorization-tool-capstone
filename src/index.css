@@ -45,3 +45,12 @@ table {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.btn-1 {
+		@apply bg-cyan-600 text-white border-black lowercase py-2 px-5 rounded-lg font-bold hover:bg-white hover:text-lightTan !important;
+	}
+	.btn-2 {
+		@apply bg-black
+	}
+}

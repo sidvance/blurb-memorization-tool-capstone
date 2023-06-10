@@ -15,7 +15,7 @@ Blurb.belongsTo(User)
 
 //controller imports
 const {register, login, checkUser, logout} = require('./controllers/authCtrl')
-const {addNewBlurb, getUserBlurbs} = require('./controllers/blurbCtrl')
+const {addNewBlurb, getUserBlurbs, getBlurb} = require('./controllers/blurbCtrl')
 
 const app = express()
 
@@ -41,6 +41,7 @@ app.post('/api/logout', logout)
 //endpoints for data
 app.post('/api/blurbs', addNewBlurb)
 app.get('/api/blurbs/:userId', getUserBlurbs)
+app.get('/api/blurb/:blurbId', getBlurb)
 
 //below line establishes connection with database
 // sequelize.sync({force: true})

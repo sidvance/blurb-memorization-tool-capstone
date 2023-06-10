@@ -22,7 +22,7 @@ const Home = () => {
     }, [])
 
     return (
-        <div>
+        <div className='flex'>
             {allBlurbs.map(blurb => <BlurbCard blurb={blurb}/>)}
         </div>
     )

@@ -38,5 +38,23 @@ module.exports = {
             console.log(theseHands)
             res.sendStatus(500)
         }
+    },
+    getBlurb: async (req, res) => {
+        try{
+            const {blurbId} = req.params
+
+            const blurb = await Blurb.findOne({
+                where: {id: blurbId},
+                include: [{
+                    model: User,
+                    attributes: ['username', 'id'],
+                }]
+            })
+
+            res.status(200).send(blurb)
+        } catch(theseHands){
+            console.log(theseHands)
+            res.status(400).send('No blurb found.')
+        }
     }
 }

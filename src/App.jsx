@@ -23,7 +23,7 @@ function App() {
           <Route path='/edit-blurb' element={userId ? <EditBlurb/> : <Navigate to='/'/>}></Route>
           <Route path='/home/:blurbId' element={userId ? <MemoryPage/> : <Navigate to='/'/>}></Route>
         </Routes>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 }
