@@ -9,10 +9,14 @@ const Header = () => {
 
     return (
         userId ? (
-            <nav className='flex justify-center items-center h-[10vh] border-black border-solid md-border-dotted border-2 '>
-                <NavLink to='/home' className="top-1/2 left-1/2">Home</NavLink>
-                <NavLink to='/add-blurb'>Add a Blurb</NavLink>
-                <button onClick={logout} className="top-1/2 right-1/2">Logout</button>
+            <nav className='flex items-center h-[10vh] shadow-md'>
+                <img className='float-left pl-1' src='https://scontent.flas1-1.fna.fbcdn.net/v/t39.30808-6/353401072_4225106444381460_5501482169437103377_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=0debeb&_nc_ohc=OsKszKMlEmMAX8JK0GS&_nc_ht=scontent.flas1-1.fna&oh=00_AfDS75S9O_A4cybKvd4bGSV23EgyYSHka_ImB2Tmv-snqA&oe=64899D1E' alt='blurb' width='70' height='70'></img>
+                <div className='mr-auto'>
+                    <NavLink to='/home' className='top-1/2 left-1/2 p-1 pl-4'>Home</NavLink>
+                    <NavLink to='/add-blurb' className='p-1'>Add a Blurb</NavLink>
+                </div>
+                    <button onClick={logout} className='ml-auto pr-4'>Logout</button>
+                    
             </nav>
         ) : (
             null

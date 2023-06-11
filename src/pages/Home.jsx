@@ -22,8 +22,10 @@ const Home = () => {
     }, [])
 
     return (
-        <div className='flex'>
+        <div>
+            <div id='card-container' className='flex flex-wrap justify p-10'>
             {allBlurbs.map(blurb => <BlurbCard blurb={blurb}/>)}
+            </div>
         </div>
     )
 }
