@@ -16,12 +16,17 @@ const MemoryPage = () => {
     console.log(blurb)
 
     return (
-        <div>
-            <h1>{blurb.title}</h1>
-            <h2>{blurb.source}</h2>
-            <h4>{blurb.quote}</h4>
+        <div className='bg-lightTan w-screen h-screen' id='memory-page-bg'>
+            <div id='container' className='flex w-3/4 h-3/4 bg-black m-auto shadow-lg rounded flex items-end'>
+                <h1 className='text-lightTan'>{blurb.title}</h1>
+                <h2 className='text-lightTan'>{blurb.source}</h2>
+                <div className='w-11/12 h-3/4 bg-lightTan m-auto rounded'>
+                    <h4>{blurb.quote}</h4>
+                </div>
+            </div>
         </div>
-    )
+        )
+
 }
 
 export default MemoryPage
