@@ -25,13 +25,13 @@ const Landing = () => {
         {register ? (
             <form onSubmit={e => handleSubmit(e)} className='flex flex-col justify-space-evenly items-center m-10'> 
                 <input placeholder='Username' onChange={(e => setUsername(e.target.value))} className='shadow-md rounded-md'></input>
-                <input placeholder='Password' onChange={(e => setPassword(e.target.value))} className='m-7 shadow-md rounded-md'></input>
+                <input placeholder='Password' type='password' name='password' onChange={(e => setPassword(e.target.value))} className='m-7 shadow-md rounded-md'></input>
                 <button className="border-black text-black border-solid border rounded-lg font-bold hover:bg-white hover:shadow-md py-2 px-5">register</button>
             </form>
         ) : (
             <form onSubmit={e => handleSubmit(e)} className='flex flex-col justify-space-evenly items-center m-10'> 
                 <input placeholder='Username' onChange={(e => setUsername(e.target.value))} className='shadow-md rounded-md'></input>
-                <input placeholder='Password' onChange={(e => setPassword(e.target.value))} className='m-7 shadow-md rounded-md'></input>
+                <input placeholder='Password' type='password' name='password' onChange={(e => setPassword(e.target.value))} className='m-7 shadow-md rounded-md'></input>
                 <button className="border-black text-black border-solid border rounded-lg font-bold hover:bg-white hover:bg-shadow-md py-2 px-5">login</button>
             </form>
         )}

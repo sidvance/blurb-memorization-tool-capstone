@@ -10,8 +10,7 @@ const BlurbCard = ({blurb}) => {
                 <h2>{blurb.source}</h2>
             </div>
             <div className='mt-auto flex flex-col'>
-                <button className='text-sm px-1 border-black text-black border-solid border rounded-lg font-bold hover:bg-white hover:bg-shadow-md' onClick={() => navigate(`/home/${blurb.id}`)} >memorize</button>
-                <button className='text-sm p-1 hover:underline'>delete</button>
+                <button className='text-sm px-1 border-black text-black border-solid border rounded-lg font-bold hover:bg-white hover:bg-shadow-md' onClick={() => navigate(`/memory-page/${blurb.id}`)} >memorize</button>
             </div>
         </div>
     )

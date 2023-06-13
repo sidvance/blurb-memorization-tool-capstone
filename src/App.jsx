@@ -21,7 +21,7 @@ function App() {
           <Route path='/home' element={userId ? <Home/> : <Navigate to='/'/>}></Route>
           <Route path='/add-blurb' element={userId ? <AddBlurb/> : <Navigate to='/'/>}></Route>
           <Route path='/edit-blurb' element={userId ? <EditBlurb/> : <Navigate to='/'/>}></Route>
-          <Route path='/home/:blurbId' element={userId ? <MemoryPage/> : <Navigate to='/'/>}></Route>
+          <Route path='/memory-page/:blurbId' element={userId ? <MemoryPage/> : <Navigate to='/'/>}></Route>
         </Routes>
       {/* <Footer/> */}
     </div>

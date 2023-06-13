@@ -4,7 +4,6 @@ const {User} = require('../models/user')
 module.exports = {
 
     addNewBlurb: async (req, res) => {
-
        try { 
         const {title, source, quote, userId} = req.body
 
@@ -21,6 +20,7 @@ module.exports = {
             res.status(500).send('Blurb was not added successfully.')
         }
     },
+
     getUserBlurbs: async (req, res) => {
        try {
             const {userId} = req.params
@@ -39,6 +39,7 @@ module.exports = {
             res.sendStatus(500)
         }
     },
+
     getBlurb: async (req, res) => {
         try{
             const {blurbId} = req.params
@@ -56,5 +57,33 @@ module.exports = {
             console.log(theseHands)
             res.status(400).send('No blurb found.')
         }
-    }
+    },
+
+    deleteBlurb: async (req, res) => {
+        try {
+            const {blurbId} = req.params
+            await Blurb.destroy({where: {id: blurbId}})
+            res.sendStatus(200)
+        } catch(theseHands) {
+            console.log(theseHands)
+            res.status(400).send('Trouble deleting blurb')
+        }
+    },
+
+    editBlurb: async (req, res) => {
+        try { 
+         const {title, source, quote, blurbId} = req.body
+ 
+         const updatedBlurb = await Blurb.update({
+             title, 
+             source, 
+             quote
+             }, {where: {id: blurbId}})
+ 
+             res.status(200).send(updatedBlurb)
+         } catch(theseHands){
+             console.log(theseHands)
+             res.status(500).send('Blurb was not edited successfully.')
+         }
+     },
 }
