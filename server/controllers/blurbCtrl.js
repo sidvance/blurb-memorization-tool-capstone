@@ -74,11 +74,13 @@ module.exports = {
         try { 
          const {title, source, quote, blurbId} = req.body
  
-         const updatedBlurb = await Blurb.update({
+         await Blurb.update({
              title, 
              source, 
              quote
              }, {where: {id: blurbId}})
+
+             const updatedBlurb = await Blurb.findOne({where: {id: blurbId}})
  
              res.status(200).send(updatedBlurb)
          } catch(theseHands){
