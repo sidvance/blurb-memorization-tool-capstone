@@ -27,7 +27,10 @@ const MemoryPage = () => {
     useEffect(getBlurb, [])
     console.log(blurb)
 
-    let randomNumber = Math.floor(Math.random() * 10)
+    
+    const colors = ['#E52A01', '#97292C', '#FFD700', '#B18B0E', '#FFBF80', '#FF8726', '#A5BD68', '#4D7F17', '#805489', '#9E2283', '#F0CFCF', '#F44681', '#4F859A', '#3366CC']
+    let randomColor = colors[Math.floor(Math.random()*colors.length)] 
+    
 
     const replaceOddIndices = str => {
         const wordsArr = str.split(' ')
@@ -90,14 +93,16 @@ const MemoryPage = () => {
           ) : (
           <div className='bg-lightTan w-screen h-screen mt-4' id='memory-page-bg'>
               <div id='container' className='flex flex-wrap flex-col content-center w-3/4 h-3/4 bg-black m-auto shadow-lg rounded items-end'>
-                  <h1 className='text-lightTan'>{blurb.title}</h1>
-                  <h2 className='text-lightTan'>{blurb.source}</h2>
-                  <div className='w-11/12 h-3/4 bg-lightTan rounded'>
-                      <h4>{splicedBlurb}</h4>
+                  <div className='w-11/12 h-3/4 bg-lightTan rounded mt-10'>
+                      <h4 className='m-4'>{splicedBlurb}</h4>
                   </div>
-                  <input onChange={e => setWordSplice(e.target.value)} placeholder="Type the # that you want to skip"/>
-                  <button className='text-lightTan'  onClick={() => replaceOddIndices(blurb.quote)}>splice</button>
-                  <button className='text-lightTan' onClick={() => setEditing(!editing)}>edit</button>
+                  <h1 className='text-lightTan flex self-start mt-auto font-bold text-xl'>{blurb.title}</h1>
+                  <h2 className='text-lightTan flex self-start mt-auto mb-3 font-bold text-md'>{blurb.source}</h2>
+                  <div className='flex inline mr-auto ' id='input-container'>
+                      <input className='rounded w-10 p-1 mb-2 flex self-start' onChange={e => setWordSplice(e.target.value)} placeholder="Type the # that you want to skip"/>
+                      <button className='text-lightTan flex self-start self-center mb-2 ml-2 mr-20' onClick={() => replaceOddIndices(blurb.quote)}>splice</button>
+                      <button className='text-lightTan flex self-center ml-96 mb-2 hover:underline' onClick={() => setEditing(!editing)}>edit</button>
+                  </div>
               </div>
           </div>
         )}

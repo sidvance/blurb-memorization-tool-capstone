@@ -7,7 +7,9 @@ module.exports = {
   ],
   theme: {
     colors: {
+      "lighterTan": "f9f9f9",
       "lightTan": "#FBF7F8",
+      "darkerTan": "#F6F5F5",
       "white": "#FFFFFF",
       "black": "#000000"
     },
