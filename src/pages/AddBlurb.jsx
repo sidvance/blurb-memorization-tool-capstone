@@ -37,7 +37,7 @@ const AddBlurb = () => {
                     <input className='w-1/2 rounded shadow-md m-2 p-1' placeholder='title of your blurb' onChange={e => setTitle(e.target.value)} />
                     <input className='w-1/2 rounded shadow-md m-2 p-1' placeholder='source of your blurb' onChange={e => setSource(e.target.value)} />
                     <textarea className='w-1/2 h-96 rounded shadow-md m-2 p-1' placeholder='your blurb' onChange={e => setQuote(e.target.value)} />
-                    <button className="p-2 bg-white text-black rounded-lg font-bold shadow-md hover:shadow-lg active:shadow-none active:bg-lightTan">Submit</button>
+                    <button className="p-2 m-2 bg-white text-black rounded-lg font-bold shadow-md hover:shadow-lg active:shadow-none active:bg-lightTan">Submit</button>
                 </div>
             </form>
         </div>

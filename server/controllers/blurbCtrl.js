@@ -51,7 +51,6 @@ module.exports = {
                     attributes: ['username', 'id'],
                 }]
             })
-
             res.status(200).send(blurb)
         } catch(theseHands){
             console.log(theseHands)
