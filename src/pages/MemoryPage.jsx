@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import axios from "axios"
 
-const colors = ['#E52A01', '#97292C', '#FFD700', '#B18B0E', '#FFBF80', '#FF8726', '#A5BD68', '#4D7F17', '#805489', '#9E2283', '#F0CFCF', '#F44681', '#4F859A', '#3366CC']
+const colors = ['#FFBF80', '#A5BD68', '#805489', '#F0CFCF', '#4F859A', '#3366CC', '#C1BDDB', '#A08794', '#E8DDB5', '#95B8D1']
 
 const MemoryPage = () => {
     const {blurbId} = useParams()
