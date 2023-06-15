@@ -23,7 +23,7 @@ const Home = () => {
 
     return (
         <div>
-            <div id='card-container' className='flex flex-wrap content-start justify p-10 w-screen h-screen'>
+            <div id='card-container' className='flex flex-wrap content-start text-center ml-10 p-10 w-screen h-screen'>
             {allBlurbs.map(blurb => <BlurbCard blurb={blurb}/>)}
             </div>
         </div>
