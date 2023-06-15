@@ -21,11 +21,11 @@ const Landing = () => {
 
     return(
         <main className='flex min-w-full h-[100vh] items-center justify-center flex-col'>
-            <img src='https://scontent.flas1-1.fna.fbcdn.net/v/t39.30808-6/353401072_4225106444381460_5501482169437103377_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=0debeb&_nc_ohc=OsKszKMlEmMAX8JK0GS&_nc_ht=scontent.flas1-1.fna&oh=00_AfDS75S9O_A4cybKvd4bGSV23EgyYSHka_ImB2Tmv-snqA&oe=64899D1E' alt='blurb' width='250' height='250'></img>
+            <img src='https://scontent.flas1-1.fna.fbcdn.net/v/t39.30808-6/353401072_4225106444381460_5501482169437103377_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=0debeb&_nc_ohc=m6YDW7lfVH8AX-j7LnP&_nc_ht=scontent.flas1-1.fna&oh=00_AfDwwTcvHDm3OZkt9G2B0UvG36xVFWllCDl619PVXgforg&oe=648F8BDE' alt='blurb' width='250' height='250'></img>
         {register ? (
             <form onSubmit={e => handleSubmit(e)} className='flex flex-col justify-space-evenly items-center m-10'> 
-                <input placeholder='username' onChange={(e => setUsername(e.target.value))} className='p-1 shadow-md rounded'></input>
-                <input placeholder='password' type='password' name='password' onChange={(e => setPassword(e.target.value))} className='p-1 m-7 shadow-md rounded'></input>
+                <input placeholder='create a username' onChange={(e => setUsername(e.target.value))} className='p-1 shadow-md rounded'></input>
+                <input placeholder='create a password' type='password' name='password' onChange={(e => setPassword(e.target.value))} className='p-1 m-7 shadow-md rounded'></input>
                 <button className="bg-white text-black rounded-lg font-bold shadow-md hover:shadow-lg active:shadow-none active:bg-lightTan py-2 px-5">register</button>
             </form>
         ) : (
